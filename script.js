@@ -3,3 +3,13 @@ function contact(firstName,lastName,phoneNumber) {
     this.lastName = lastName;
     this.phoneNumber = phoneNumber;
 }
+function AdressBook(){
+    this.contacts ={};
+    thid.currentId = 0;
+}
+
+AddressBook.prototype.addContact = function(contact) {
+    this.currentId += 1;
+    contact.id = this.currentId;
+    this.contacts[contact.id] = contact;
+};
