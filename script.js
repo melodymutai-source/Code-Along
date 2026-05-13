@@ -30,7 +30,16 @@ AddressBook.prototype.deleteContact =function(id) {
 };
 
 let addressBook = new AddressBook();
-
+{
+    let contactsList =document.querySelector("div#contact-list");
+let htmlForContactInfo = "";
+Object.keys(addressBookToDisplay.contacts).forEach(function(key)
+{
+    const contact = addressBookToDisplay.contacts[key];
+    htmlForContactInfo += "<p>" + contact.firstName + " " + contact.lastName + "</p>";
+});
+contactsList.innerHTML =htmlForContactInfo; 
+};
 window.addEventListener("load",function() {
     document.querySelector("form#new-contact").addEventListener("submit",function(event) {
         event.preventDefault();
@@ -40,6 +49,7 @@ window.addEventListener("load",function() {
 
         let newContact = new Contact(inputtedFirstName,inputtedLastName,inputtedphoneNumber);
         addressBook.addContact(newContact);
+        displayContactDetails(addressBook);
 
         console.log(addressBook.Contacts);
     });
