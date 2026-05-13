@@ -3,9 +3,9 @@ function contact(firstName,lastName,phoneNumber) {
     this.lastName = lastName;
     this.phoneNumber = phoneNumber;
 }
-function AdressBook(){
+function AddressBook(){
     this.contacts ={};
-    thid.currentId = 0;
+    this.currentId = 0;
 }
 
 AddressBook.prototype.addContact = function(contact) {
@@ -14,14 +14,14 @@ AddressBook.prototype.addContact = function(contact) {
     this.contacts[contact.id] = contact;
 };
 
-AdressBook.prototype.findContact = function(id) {
+AddressBook.prototype.findContact = function(id) {
     if (this.contacts[id] !==undefined) {
         return this.contacts[id];
     }
     return false;
 };
 
-AdressBook.prototype.deleteContact =function(id) {
+AddressBook.prototype.deleteContact =function(id) {
     if (this.contact[id] === undefined) {
         return false;
     }
@@ -34,11 +34,13 @@ let addressBook = new AddressBook();
 window.addEventListener("load",function(){
     document.querySelector("form#new-contact").addEventListener("submit",function(event) {
         event.preventDefault();
-        const inputFirstName = document.querySelector("input#new-first-name").value;
-        const inputLastName = document.querySelector("input#new-last-name").value;
-        const inputphoneNumber = document.querySelector("inpu#new-phone-number").value;
+        const inputtedFirstName = document.querySelector("input#new-first-name").value;
+        const inputtedLastName = document.querySelector("input#new-last-name").value;
+        const inputtedphoneNumber = document.querySelector("input#new-phone-number").value;
 
-        let newContact = newContact(inputFirstName,inputLastName,inputphoneNumber);
+        let newContact = newContact(inputtedFirstName,inputtedLastName,inputtedphoneNumber);
         addressBook.addContact(newContact);
-    }
-}
+
+        console.log(addressBook.contacts);
+    });
+});
