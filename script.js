@@ -13,3 +13,10 @@ AddressBook.prototype.addContact = function(contact) {
     contact.id = this.currentId;
     this.contacts[contact.id] = contact;
 };
+
+AdressBook.prototype.findContact = function(id) {
+    if (this.contacts[id] !==undefined) {
+        return this.contacts[id];
+    }
+    return false;
+};
