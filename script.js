@@ -28,3 +28,17 @@ AdressBook.prototype.deleteContact =function(id) {
     delete this.contacts[id];
     return true;
 };
+
+let addressBook = new AddressBook();
+
+window.addEventListener("load",function(){
+    document.querySelector("form#new-contact").addEventListener("submit",function(event) {
+        event.preventDefault();
+        const inputFirstName = document.querySelector("input#new-first-name").value;
+        const inputLastName = document.querySelector("input#new-last-name").value;
+        const inputphoneNumber = document.querySelector("inpu#new-phone-number").value;
+
+        let newContact = newContact(inputFirstName,inputLastName,inputphoneNumber);
+        addressBook.addContact(newContact);
+    }
+}
