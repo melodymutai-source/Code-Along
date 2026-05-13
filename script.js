@@ -30,15 +30,15 @@ AddressBook.prototype.deleteContact =function(id) {
 };
 
 let addressBook = new AddressBook();
-{
-    let contactsList =document.querySelector("div#contact-list");
+function displayContactDetails(addressBookToDisplay) {
+    let ContactsList =document.querySelector("div#contact-list");
 let htmlForContactInfo = "";
-Object.keys(addressBookToDisplay.contacts).forEach(function(key)
+Object.keys(addressBookToDisplay.Contacts).forEach(function(key)
 {
-    const contact = addressBookToDisplay.contacts[key];
-    htmlForContactInfo += "<p>" + contact.firstName + " " + contact.lastName + "</p>";
+    const Contact = addressBookToDisplay.Contacts[key];
+    htmlForContactInfo += "<p>" + Contact.firstName + " " + Contact.lastName + "</p>";
 });
-contactsList.innerHTML =htmlForContactInfo; 
+ContactsList.innerHTML =htmlForContactInfo; 
 };
 window.addEventListener("load",function() {
     document.querySelector("form#new-contact").addEventListener("submit",function(event) {
