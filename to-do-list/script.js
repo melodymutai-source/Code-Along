@@ -1,12 +1,12 @@
 function ToDoList() {
-    this.task = {};
+    this.tasks = {};
     this.currentId = 0;
 }
 
 ToDoList.prototype.addTask = function(task) {
     this.currentId += 1;
     task.id = this.currentId;
-    this.task[task.id] = task;
+    this.tasks[task.id] = task;
 };
 ToDoList.prototype.markAsDone = function(id) {
     if (this.tasks[id] !== undefined){
@@ -17,7 +17,7 @@ ToDoList.prototype.markAsDone = function(id) {
 };
 
 ToDoList.prototype.deleteTask =function(id) {
-    if(this.task[id] === undefined) {
+    if(this.tasks[id] === undefined) {
         return false;
     }
     delete this.tasks[id];
@@ -28,7 +28,7 @@ function Task(description) {
     this.isDone = false;
 }
 
-let ToDoList = new ToDoList();
+let toDoList = new ToDoList();
 
 function displayTaskDetails(toDoListToDisplay)
 {
@@ -49,7 +49,7 @@ window.addEventListener("load",function() {
     document.querySelector("form#new-task").addEventListener("submit",function(event) {
         event.preventDefault();
         
-        const inputtedDescription = document.querySelector("input#new-task-description").Value;
+        const inputtedDescription = document.querySelector("input#new-task-description").value;
         let newTask = new Task(inputtedDescription);
         toDoList.addTask(newTask);
 
