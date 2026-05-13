@@ -27,3 +27,40 @@ function Task(description) {
     this.description = description;
     this.isDone = false;
 }
+
+let ToDoList = new ToDoList();
+
+function displayTaskDetails(toDoListToDisplay)
+{
+    let taskListDiv = document.querySelector("div#task-list");
+    let htmlForTaskInfo = "";
+
+    Object.keys(toDoListToDisplay.tasks).forEach(function(key)
+    {
+        const task =toDoListToDisplay.tasks[key];
+        htmlForTaskInfo += `<p id="${task.id}">${task.description} -Status: ${task.isDone ? "Done" :"Pending"}
+        <button class="deleteButton" id="${task.id}">Delete</button></p>`;
+    });
+
+    taskListDiv.innerHTML =htmlForTaskInfo;
+}
+
+window.addEventListener("load",function() {
+    document.querySelector("form#new-task").addEventListener("submit",function(event) {
+        event.preventDefault();
+        
+        const inputtedDescription = document.querySelector("input#new-task-description").Value;
+        let newTask = new Task(inputtedDescription);
+        toDoList.addTask(newTask);
+
+        displayTaskDetails(toDoList);
+        document.querySelector("input#new-task-description").value ="";
+    });
+
+    document.querySelector("div#task-list").addEventListener("click",function(event) {
+        if (event.target.className ==="deleteButton") {
+            toDoList.deleteTask(event.target.id);
+            displayTaskDetails(toDoList);
+        }
+    });
+});
