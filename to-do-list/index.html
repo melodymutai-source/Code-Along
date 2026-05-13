@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do List</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>My To Do List</h1>
+        <hr>
+        <form id="new task">
+            <div class="form-group">
+                <label for="new-task-description">Task Description:</label>
+                <input type="text" id="new-task-description" class="form-control" required>
+            </div>
+            <button type="submit" class="btn">Add Task</button>
+        </form>
+        <hr>
+        <h2>Tasks;</h2>
+        <div id="task-list"></div>
+    </div>
+    <script src="script.js"></script>
+    
+</body>
+</html>

@@ -9,7 +9,7 @@ ToDoList.prototype.addTask = function(task) {
     this.task[task.id] = task;
 };
 ToDoList.prototype.markAsDone = function(id) {
-    if (this.task[id] !== undefined){
+    if (this.tasks[id] !== undefined){
         this.tasks[id].isDone = true;
         return true;
     }
