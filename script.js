@@ -50,6 +50,7 @@ window.addEventListener("load",function() {
         let newContact = new Contact(inputtedFirstName,inputtedLastName,inputtedphoneNumber);
         addressBook.addContact(newContact);
         displayContactDetails(addressBook);
+        document.querySelector("form#new-contact").reset();
 
         console.log(addressBook.Contacts);
     });
